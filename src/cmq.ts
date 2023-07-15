@@ -20,7 +20,6 @@ import {
   SendMessageResult
 } from './types';
 import axios, { AxiosRequestConfig } from 'axios';
-import { tdmq } from 'tencentcloud-sdk-nodejs';
 import { Client } from 'tencentcloud-sdk-nodejs/tencentcloud/services/tdmq/v20200217/tdmq_client';
 
 export class CMQ {
@@ -45,7 +44,7 @@ export class CMQ {
     this.path = option.path ?? '/v2/index.php';
 
     if (option.api) {
-      this.api = new tdmq.v20200217.Client({
+      this.api = new Client({
         credential: {
           secretId: option.secretId,
           secretKey: option.secretKey
